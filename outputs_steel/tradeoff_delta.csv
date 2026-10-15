@@ -1,5 +1,0 @@
-﻿비교,Macro F1 변화,CV Macro F1 변화,Accuracy 변화,Stains Recall 변화,Stains F1 변화,Stains 오경보 변화(건),Dirtiness Recall 변화,Dirtiness F1 변화,Dirtiness 오경보 변화(건)
-LR_ClassWeight − LR_Baseline,-0.086,-0.046,-0.067,0.0,-0.057,2,0.091,-0.319,21
-LR_SMOTE − LR_Baseline,-0.077,-0.037,-0.059,0.0,-0.057,2,0.091,-0.319,21
-RF_ClassWeight − RF_Baseline,0.013,-0.0,0.005,0.0,0.034,-1,0.0,0.043,-1
-RF_SMOTE − RF_Baseline,0.032,0.007,0.01,0.0,0.034,-1,0.091,0.095,-1
