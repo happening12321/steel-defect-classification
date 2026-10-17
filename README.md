@@ -120,7 +120,7 @@ project/
 GitHub Repository의 HTTPS 주소를 사용합니다.
 
 ```bash
-git clone <https://github.com/happening12321/steel-defect-classification>
+git clone https://github.com/happening12321/steel-defect-classification
 cd <프로젝트 폴더 만들고 지정 필요>
 ```
 
