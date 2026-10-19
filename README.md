@@ -50,19 +50,17 @@
 ```text
 project/
 ├── README.md
-├── steel_plates_faults.csv              # 원본 데이터
-├── steel_fault_baseline.ipynb           # EDA + Baseline 4종 비교
-├── 최종_모델.ipynb                       # 전처리·튜닝·앙상블·평가·저장
-├── app.py                               # Streamlit 대시보드
-├── pyproject.toml                       # 의존성 정의 (uv)
-├── uv.lock                              # 의존성 버전 고정 (uv)
 │
-├── split_indices.joblib                 # (Baseline 실행 시 생성) 분할 인덱스
-├── baseline_scores.csv                  # (Baseline 실행 시 생성)
-├── baseline_per_class_test.csv          # (Baseline 실행 시 생성)
-├── steel_fault_model_combined.joblib    # (최종 모델 실행 시 생성) 최종 모델
+├── code/
+│   ├── steel_fault_baseline.ipynb          # EDA + Baseline 4종 비교
+│   ├── 최종 모델.ipynb                       # 전처리·튜닝·앙상블·평가·저장
+│   ├── steel_fault_model_combined.joblib   # 최종 모델 (Notebook 실행 시 생성)
+│   └── steel_plates_faults.csv             # 원본 데이터
 │
-└── figures/                             # README에 사용한 결과 그래프 이미지
+├── data/                                   # 원본 데이터 및 변수 분석
+├── notebooks/                              # EDA, 코드 리뷰, 과적합 점검 노트북
+│
+└── figures/                                # README에 사용한 결과 그래프 이미지
 ```
 
 **주요 디렉터리 및 파일 설명**
@@ -92,8 +90,8 @@ project/
 ### 3.2 Repository 다운로드
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/happening12321/steel-defect-classification.git
+cd steel-defect-classification
 ```
 
 ### 3.3 uv 설치 및 환경 구성
