@@ -1,9 +1,7 @@
 # 강판 표면 결함 유형 분류
 
-~~프로젝트에서 해결하고자 하는 문제와 핵심 내용을 한 문장으로 소개합니다.~~
 강판 표면 측정 정보(결함의 위치, 크기, 형상, 밝기 측정값, 강판 정보)를 이용해 결함을 7가지 유형 중 하나로 분류하는 다중 분류 모델 프로젝트이다.
 
-~~프로젝트의 배경, 목적, 주요 결과를 2~3문장으로 요약합니다.~~
 강판 표면 결함 7종을 분류하기 위해 결함 유형별 관측 수가 최대 약 12배 차이 나는 불균형 데이터를 분석하고, Macro F1을 주요 평가 지표로 설정했다. 기본 설정의 Baseline 모델 4종을 시작으로 트리 기반 앙상블 모델의 하이퍼파라미터 튜닝, 클래스 가중치 조정, 소프트 보팅 앙상블 및 클래스별 예측 확률 보정을 적용했다. 최종 선정된 모델(LightGBM + Extra Trees)은 테스트 데이터 389건에서 Macro F1 0.835, Accuracy 0.820을 기록했다.
 
 ![프로젝트 대표 이미지](figures/overview.png)
@@ -16,17 +14,13 @@
 
 **프로젝트 배경**
 
-~~어떤 문제를 해결하기 위한 프로젝트인지 설명합니다.~~
 - 결함 검출과 결함 유형 분류는 별개의 작업이다. 결함이 발견되더라도 정확한 유형을 판단하는 과정이 추가로 필요하다. 결함 유형에 따라 점검해야 할 공정과 조치 방법이 달라질 수 있으므로 유형을 잘못 분류하면 불필요한 점검이 발생하여 시간과 비용이 증가할 수 있다.
-~~해당 문제를 머신러닝으로 접근한 이유를 설명합니다.~~
 - 데이터에는 결함의 위치, 면적, 둘레, 밝기, 형상 지표 등 다양한 수치형 측정값이 기록되어 있다. 그러나 고려해야 할 변수가 많고, 결함 유형별 특성이 여러 변수의 조합으로 나타날 수 있어 사람이 일관된 분류 규칙을 직접 정의하기 어렵다. 따라서 여러 변수 간 관계와 패턴을 데이터로부터 학습하여 결함 유형을 분류할 수 있는 머신러닝을 활용한다.
 
 **프로젝트 목표**
 
-~~예측 대상(Target)과 목표를 정의합니다.~~
 - **예측 대상(Target)**: 강판 표면 결함 유형(Fault_Type)의 7개 클래스(Pastry, Z_Scratch, K_Scatch, Stains, Dirtiness, Bumps, Other_Faults)를 분류한다. 데이터셋에 정상 강판 데이터는 포함되어 있지 않으므로 양품/불량 판별은 대상이 아니다.
 
-~~프로젝트에서 중요하게 고려한 평가 지표를 설명합니다.~~
 - 주 평가 지표: Macro F1. 결함 유형별 관측 수에 차이가 있는 불균형 데이터의 특성을 고려하여 관측 수가 적은 결함 유형도 동일한 비중으로 평가하기 위해 선택했다.
 - 평가 보조 지표: Accuracy, Balanced Accuracy, Macro Precision, Macro Recall, 클래스별 F1-score 및 혼동행렬을 활용하여 전체 예측 정확도와 결함 유형별 분류 성능을 함께 확인한다.
 - 모델 평가 방향: 기본 설정의 Baseline 모델과 클래스 가중치 조정, 클래스별 예측 확률 보정 등을 적용한 모델의 성능을 평가하고 Macro F1을 중심으로 결과를 분석한다.
@@ -42,14 +36,11 @@
 
 ### 1.3 주요 성과
 
-- **모델 성능:** ~~예) Recall 0.62 → 0.81 개선~~ 최종 모델(LightGBM + Extra Trees 소프트 보팅)은 테스트 데이터 389건에서 Macro F1 0.8349(부트스트랩 95% 신뢰구간: 0.786~0.876), Accuracy 0.8201, Balanced Accuracy 0.8527
-→ 예시처럼 줄여서 쓰면 > 최종 모델(LightGBM + Extra Trees)의 테스트 Macro F1 0.8349, Accuracy 0.8201 달성 < 정도면 될 것 같아요.
+- **모델 성능:**  최종 모델(LightGBM + Extra Trees)의 테스트 Macro F1 0.8349, Accuracy 0.8201 달성
 
-- **불균형 처리:** ~~예) SMOTE 적용 후 소수 클래스 탐지 성능 개선~~ 클래스 가중치 탐색과 클래스별 예측 확률 보정을 적용했다. 최종 앙상블 모델의 확률 보정 전후 Macro F1은 OOF 기준 0.8236 → 0.8358, 동일 테스트 데이터 기준 0.8264 → 0.8349로 상승했다.
-→ 예시처럼 줄여서 쓰면 > 클래스별 예측 확률 보정을 통해 동일 테스트 데이터의 Macro F1 0.8264 → 0.8349 개선 <
+- **불균형 처리:** 클래스별 예측 확률 보정을 통해 동일 테스트 데이터의 Macro F1 0.8264 → 0.8349 개선
 
-- **주요 인사이트:** ~~예) 특정 변수가 예측에 중요한 영향을 미치는 것으로 확인~~ 강종과 결함 유형 사이에 강한 연관성이 나타났다(χ² = 667.0, p < 0.001, Cramér's V = 0.586). K_Scatch, Stains, Z_Scratch는 F1-score 0.92 이상을 기록한 반면 Bumps와 Other_Faults 간 혼동은 전체 오분류 70건 중 33건(47.1%)을 차지한다. 순열 변수 중요도 분석에서는 Length_of_Conveyer, Steel_Type, Steel_Plate_Thickness가 주요 변수로 나타났다.
-→ 간략하게 작성하면 > 강종과 결함 유형 간 강한 연관성을 확인했으며, Bumps와 Other_Faults 간 혼동이 전체 오분류의 47.1%를 차지했다. 순열 변수 중요도 분석에서는 Length_of_Conveyer, Steel_Type, Steel_Plate_Thickness가 주요 변수로 나타났다. <도 괜찮을 것 같아요.
+- **주요 인사이트:** 강종과 결함 유형 간 강한 연관성을 확인했으며, Bumps와 Other_Faults 간 혼동이 전체 오분류의 47.1%를 차지했다. 순열 변수 중요도 분석에서는 Length_of_Conveyer, Steel_Type, Steel_Plate_Thickness가 주요 변수로 나타났다.
 
 ---
 
@@ -213,10 +204,6 @@ uv run streamlit run app.py
 
 ### 5.2 데이터 특징
 
-~~- 주요 Feature와 데이터 특성~~
-~~- Target 클래스 분포~~
-~~- 분석 시 고려해야 할 데이터 특성~~
-
 - **주요 Feature**: 결함 영역의 위치(X·Y 좌표 최소·최대), 크기(Pixels_Areas, X·Y_Perimeter), 밝기(Sum·Minimum·Maximum_of_Luminosity), 형상 지표(Edges_Index, Empty_Index, Square_Index, Orientation_Index 등), 변환 변수(LogOfAreas, Log_X·Log_Y_Index, SigmoidOfAreas), 강판 정보(Steel_Type, Steel_Plate_Thickness, Length_of_Conveyer)
 
 - **이상치 및 분포**: IQR 1.5배 기준 이상치 후보 비율이 Sum_of_Luminosity 20.6%, Pixels_Areas 20.4%, Outside_X_Index 19.1%, X_Perimeter 18.1%로 높게 나타났다. 해당 값들은 실제 결함 특성을 반영할 가능성이 있으므로 제거하지 않았다. 반면 LogOfAreas(0.3%)와 Log_Y_Index(0.2%)는 이상치 후보 비율이 상대적으로 낮았다.
@@ -229,7 +216,6 @@ uv run streamlit run app.py
 
 ![Target Distribution](figures/target_distribution.png)
 
-~~불균형 데이터의 특징과 모델링에서 고려해야 할 사항을 설명합니다.~~
 가장 많은 Other_Faults(673건)와 가장 적은 Dirtiness(55건)의 관측 수가 약 12.2배 차이 나므로 모델링 시 다음 사항을 고려했다.
 
 - **평가 지표**: 클래스 불균형으로 인한 Accuracy의 한계를 보완하기 위해 Macro F1을 주요 평가 지표로 선정했다.
