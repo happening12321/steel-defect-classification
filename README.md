@@ -489,5 +489,5 @@ SHAP은 사용하지 않았습니다.
 | 최원우 | 발표 | https://github.com/SucutSkunk/team_project |
 | 손규리 | 보고서 작성 | https://github.com/sgr100405-arch/kant-ds |
 | 강민정 | 코드 리뷰, GitHub 관리 | - |
-| 황류경 | 보고서 작성 | https://github.com/das46578/Kant_DS |
+| 황류경 | 보고서 작성 | https://github.com/das46578/Team_Project |
 | 신유정 | README.md 작성 |https://github.com/sinyu-dev/kant_DS  |
