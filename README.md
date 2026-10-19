@@ -4,7 +4,7 @@
 
 공개 데이터인 Steel Plates Faults(1,941건)를 사용해 검사원의 결함 유형 판정을 보조하는 모델을 개발했습니다. 유형 간 표본 수 차이가 최대 12.2배인 불균형 데이터이므로 Macro F1을 주 지표로 삼았고, LightGBM + Extra Trees 소프트 보팅 앙상블에 클래스별 확률 배율을 적용한 최종 모델이 테스트 Macro F1 **0.835**(Baseline 0.794)를 기록했습니다.
 
-![프로젝트 대표 이미지](figures/overview.png.png)
+![프로젝트 대표 이미지](figures/overview.png)
 
 ---
 
@@ -198,7 +198,7 @@ uv를 쓰지 않으면 `streamlit run app.py`로 실행합니다. 브라우저�
 | Stains | 72 | 3.7% |
 | Dirtiness | 55 | 2.8% |
 
-![Target Distribution](figures/target_distribution.png.png)
+![Target Distribution](figures/target_distribution.png)
 
 최다 유형 Other_Faults(673건)가 최소 유형 Dirtiness(55건)의 12.2배입니다. 전체 정확도만 보면 다수 유형 성능에 가려 소수 유형 성능을 파악하기 어렵기 때문에 Macro F1로 평가했고, 층화 분할로 모든 분할에서 유형 비율을 유지했습니다. 테스트셋의 Stains(14건)·Dirtiness(11건)는 1~2건 차이로도 지표가 크게 흔들립니다.
 
@@ -224,7 +224,7 @@ uv를 쓰지 않으면 `streamlit run app.py`로 실행합니다. 브라우저�
 
 **분석 결과 시각화**
 
-![EDA Result](figures/eda_result.png.png)
+![EDA Result](figures/eda_result.png)
 
 ※ 유형별 강종 구성 비율과 건수 (χ² = 667.0, Cramér's V = 0.586)
 
@@ -330,7 +330,7 @@ uv를 쓰지 않으면 `streamlit run app.py`로 실행합니다. 브라우저�
 
 **성능 비교 결과**
 
-![Model Comparison](figures/model_comparison.png.png)
+![Model Comparison](figures/model_comparison.png)
 
 ※ 세로축은 0.70부터 시작합니다. 상위 후보 간 차이(0.80~0.83)는 테스트 95% 신뢰구간 폭(약 0.09)보다 작습니다.
 
@@ -371,7 +371,7 @@ uv를 쓰지 않으면 `streamlit run app.py`로 실행합니다. 브라우저�
 
 **Confusion Matrix**
 
-![Confusion Matrix](figures/confusion_matrix.png.png)
+![Confusion Matrix](figures/confusion_matrix.png)
 
 ※ 왼쪽: 건수, 오른쪽: 실제 유형 기준 비율 (테스트 389건)
 
@@ -399,7 +399,7 @@ uv를 쓰지 않으면 `streamlit run app.py`로 실행합니다. 브라우저�
 | 9 | Minimum_of_Luminosity | 0.0120 ± 0.0090 |
 | 10 | Edges_Y_Index | 0.0118 ± 0.0075 |
 
-![Feature Importance](figures/feature_importance.png.png)
+![Feature Importance](figures/feature_importance.png)
 
 **주요 분석 결과**
 
@@ -417,14 +417,14 @@ SHAP은 사용하지 않았습니다.
 
 - **샘플 예측:** 데이터에서 결함 1건을 행 번호 또는 무작위로 골라 예측 유형, 신뢰도, 실제 유형, 7개 유형별 확률을 보여줍니다.
 - **CSV 업로드 예측:** 여러 건이 담긴 CSV를 올리면 건별 예측 결과, 유형별 예측 건수를 보여주고 결과를 CSV로 내려받을 수 있습니다. 필요한 열 누락, 강종 값 오류, 빈 값을 검사합니다.
-- **검사원 확인 권장 표시:** 예측 유형이 Pastry·Bumps이거나 신뢰도가 기준(사이드바 슬라이더, 기본 0.60)보다 낮으면 "확인 권장"으로 표시합니다. Pastry는 Precision, Bumps는 Recall이 낮기 때문입니다(8.2 참고).
+- **검사원 확인 권장 표시:** 예측 유형이 Pastry·Bumps이거나 신뢰도가 기준(사이드바 슬라이더, 기본 0.50)보다 낮으면 "확인 권장"으로 표시합니다. Pastry는 Precision, Bumps는 Recall이 낮기 때문입니다(8.2 참고).
 - **모델 정보:** 최종 모델 구성, 클래스별 확률 배율, 테스트 성능, 유형별 성능표, 모델 비교·혼동행렬·변수 중요도 그래프를 보여줍니다.
 
 > 저장된 모델은 전체 데이터로 다시 학습한 것이므로, 샘플 예측 결과는 성능 지표가 아닙니다.
 
 ### 9.2 실행 화면
 
-![Streamlit Dashboard](figures/dashboard.png.png)
+![Streamlit Dashboard](figures/dashboard.png)
 
 ※ 샘플 예측 탭 화면
 
