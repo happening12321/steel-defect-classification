@@ -56,13 +56,18 @@ project/
 ├── steel_plates_faults.csv              # 원본 데이터
 ├── steel_fault_baseline.ipynb           # EDA + Baseline 4종 비교
 ├── 최종 모델.ipynb                        # 전처리·튜닝·앙상블·평가·모델 저장
-├── steel_fault_model_combined.joblib    # (최종 모델 Notebook 실행 시 생성)
 │
 ├── steel_streamlit_app/                 # Streamlit 대시보드
 │   ├── app.py                           # 대시보드 화면
 │   ├── steel_model.py                   # 전처리 함수·모델 클래스
-│   ├── steel_fault_model_combined.joblib
+│   ├── steel_fault_model_combined.joblib  # 최종 모델 (Notebook 실행 시 생성)
 │   └── steel_plates_faults.csv
+│
+├── data/                                # 원본 데이터 및 변수 분석
+├── notebooks/                           # EDA, 코드 리뷰 등 실험 노트북
+├── model 0.8349/                        # 최종 모델 노트북 (팀 공유본)
+├── reports/                             # 프로젝트 보고서
+├── submission/                          # 일자별 과제 제출물
 │
 └── figures/
     ├── overview.png
