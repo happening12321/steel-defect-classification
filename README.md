@@ -494,5 +494,5 @@ SHAP은 사용하지 않았습니다.
 |최원우 |발표 |https://github.com/SucutSkunk/team_project.git |
 |손규리 |보고서 작성 |sgr100405-arch/kant-ds |
 |강민정 |코드리뷰, GitHub관리 | |
-|황류경 |보고서작성 |Kant_DS/Team Project at main · das46578/Kant_DS |
+|황류경 |보고서작성 | https://github.com/das46578/Team_Project |
 |신유정 |README.md작성 |https://github.com/sinyu-dev/Team_project_01.git |
