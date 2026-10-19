@@ -67,13 +67,13 @@ project/
 
 | 파일 / 디렉터리 | 설명 |
 |---|---|
-| `steel_plates_faults.csv` | 분석에 사용한 원본 데이터 (1,941행 × 34열) |
-| `steel_fault_baseline.ipynb` | 데이터 구조 점검, EDA, Baseline 4종 비교 |
-| `최종_모델.ipynb` | 파생 변수 검증, 4개 모델 튜닝, 앙상블·확률 보정, 테스트 평가, 변수 중요도, 모델 저장 |
-| `steel_fault_model_combined.joblib` | 전체 데이터로 재학습한 최종 모델과 설정값 |
+| `code/steel_plates_faults.csv` | 분석에 사용한 원본 데이터 (1,941행 × 34열) |
+| `code/steel_fault_baseline.ipynb` | 데이터 구조 점검, EDA, Baseline 4종 비교 |
+| `code/최종 모델.ipynb` | 파생 변수 검증, 4개 모델 튜닝, 앙상블·확률 보정, 테스트 평가, 변수 중요도, 모델 저장 |
+| `code/steel_fault_model_combined.joblib` | 전체 데이터로 재학습한 최종 모델과 설정값 |
+| `data/` | 원본 데이터(UCI 원본 파일 포함)와 변수 분석 노트북 |
+| `notebooks/` | EDA, 코드 리뷰, 과적합 점검(학습 곡선·중첩 교차검증·반복 분할) 노트북과 결과 |
 | `figures/` | README에 삽입한 그래프 이미지 (`overview.png`, `target_distribution.png`, `eda_result.png`, `model_comparison.png`, `confusion_matrix.png`, `feature_importance.png`, `dashboard.png`) |
-| `pyproject.toml`, `uv.lock` | 프로젝트 의존성 정의와 버전 고정 (uv) |
-| `app.py` | Streamlit 대시보드 (샘플 예측, CSV 업로드 예측, 모델 정보) |
 
 ---
 
@@ -81,7 +81,7 @@ project/
 
 ### 3.1 실행 환경
 
-- Python 3.13.14
+- Python 3.14.7
 - Jupyter Notebook / VS Code
 - Windows 11
 - uv: 패키지·가상환경 관리 (`pyproject.toml` 기준 Python 3.13 이상)
@@ -107,8 +107,7 @@ uv sync
 ### 3.4 데이터 준비
 
 1. [UCI Steel Plates Faults](https://archive.ics.uci.edu/dataset/198/steel+plates+faults)에서 데이터 다운로드
-2. 파일명을 `steel_plates_faults.csv`로 맞춰 Notebook과 같은 폴더에 저장
-   (`data/raw/`에 두려면 각 Notebook의 `DATA_PATH`를 수정)
+2. 파일명을 `steel_plates_faults.csv`로 맞춰 `code/` 폴더(Notebook과 같은 위치)에 저장
 3. Notebook에서 데이터를 불러와 분석 진행
 
 ### 3.5 Jupyter Notebook 실행
@@ -125,13 +124,13 @@ uv sync
 
 | 순서 | 파일 | 주요 내용 |
 |---|---|---|
-| 1 | `steel_fault_baseline.ipynb` | 데이터 검증, EDA, 60/20/20 분할, Baseline 4종 학습·평가 |
-| 2 | `최종_모델.ipynb` | 80/20 분할, 파생 변수 검증, 튜닝, 앙상블·확률 보정, 테스트 평가, 모델 저장 |
+| 1 | `code/steel_fault_baseline.ipynb` | 데이터 검증, EDA, 60/20/20 분할, Baseline 4종 학습·평가 |
+| 2 | `code/최종 모델.ipynb` | 80/20 분할, 파생 변수 검증, 튜닝, 앙상블·확률 보정, 테스트 평가, 모델 저장 |
 | 3 | `app.py` | 저장된 모델로 결함 유형 예측 (Streamlit 대시보드) |
 
 ### 3.7 Streamlit 실행
 
-1. `최종_모델.ipynb`를 끝까지 실행해 `steel_fault_model_combined.joblib`을 생성합니다.
+1. `최종 모델.ipynb`를 끝까지 실행해 `steel_fault_model_combined.joblib`을 생성합니다.
 2. `app.py`, `steel_fault_model_combined.joblib`, `steel_plates_faults.csv`, `figures/`를 같은 폴더에 둡니다.
 3. 터미널에서 실행합니다.
 
@@ -147,7 +146,7 @@ uv를 쓰지 않으면 `streamlit run app.py`로 실행합니다. 브라우저�
 
 | 구분 | 사용 기술 |
 |---|---|
-| Language | Python 3.13.14 |
+| Language | Python 3.14.7 |
 | Environment & Package Management | uv (`pyproject.toml`, `uv.lock`) |
 | Data Processing | pandas 3.0.6, NumPy 2.5.4 |
 | Visualization | Matplotlib 3.11.2 |
