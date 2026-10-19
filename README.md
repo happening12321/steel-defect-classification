@@ -45,7 +45,7 @@
 
 ## 2. 프로젝트 구조
 
-현재 Notebook은 데이터 파일과 같은 폴더에서 실행하도록 작성되어 있습니다(`DATA_PATH = "steel_plates_faults.csv"`).
+현재 Notebook은 `code/` 폴더 안의 데이터 파일과 같은 위치에서 실행하도록 작성되어 있습니다(`DATA_PATH = "steel_plates_faults.csv"`).
 
 ```text
 project/
@@ -84,7 +84,7 @@ project/
 - Python 3.14.7
 - Jupyter Notebook / VS Code
 - Windows 11
-- uv: 패키지·가상환경 관리 (`pyproject.toml` 기준 Python 3.13 이상)
+- uv: 패키지·가상환경 관리 (`pyproject.toml` 기준 Python 3.14 이상)
 - Streamlit: 대시보드 실행에 사용
 
 ### 3.2 Repository 다운로드
