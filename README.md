@@ -491,8 +491,8 @@ SHAP은 사용하지 않았습니다.
 
 | 이름 | 담당 내용 | GitHub |
 |---|---|---|
-| 팀원 1 |최원우 |발표 |https://github.com/SucutSkunk/team_project.git |
-| 팀원 2 |손규리 |보고서 작성 |sgr100405-arch/kant-ds |
-| 팀원 3 |강민정 |코드리뷰, GitHub관리 | |
-| 팀원 4 |황류경 |보고서작성 |Kant_DS/Team Project at main · das46578/Kant_DS |
-| 팀원 5 |신유정 |README.md작성 |https://github.com/sinyu-dev/Team_project_01.git |
+|최원우 |발표 |https://github.com/SucutSkunk/team_project.git |
+|손규리 |보고서 작성 |sgr100405-arch/kant-ds |
+|강민정 |코드리뷰, GitHub관리 | |
+|황류경 |보고서작성 |Kant_DS/Team Project at main · das46578/Kant_DS |
+|신유정 |README.md작성 |https://github.com/sinyu-dev/Team_project_01.git |
